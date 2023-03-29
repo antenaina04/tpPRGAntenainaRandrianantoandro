@@ -4,10 +4,13 @@
  */
 package mg.itu.tpprgantenainarandrianantoandro.jsf;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.inject.Named;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -43,6 +46,18 @@ public class Bean_1 {
 
     public String afficher() {
         return "affichage_4?nb=" + nombre + "&amp;faces-redirect=true";
+    }
+
+    @PostConstruct
+    public void init() {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        Map<String, String> requestParams = facesContext.getExternalContext().getRequestParameterMap();
+        String nombreString = requestParams.get("nb");
+        if (nombreString != null) {
+            nombre = Integer.parseInt(nombreString);
+        } else {
+            nombre = 0;
+        }
     }
 
 //    public Bean() {
