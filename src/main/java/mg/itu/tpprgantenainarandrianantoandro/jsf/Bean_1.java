@@ -48,17 +48,17 @@ public class Bean_1 {
         return "affichage_4?nb=" + nombre + "&amp;faces-redirect=true";
     }
 
-    @PostConstruct
-    public void init() {
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        Map<String, String> requestParams = facesContext.getExternalContext().getRequestParameterMap();
-        String nombreString = requestParams.get("nb");
-        if (nombreString != null) {
-            nombre = Integer.parseInt(nombreString);
-        } else {
-            nombre = 0;
-        }
-    }
+//    @PostConstruct
+//    public void init() {
+//        FacesContext facesContext = FacesContext.getCurrentInstance();
+//        Map<String, String> requestParams = facesContext.getExternalContext().getRequestParameterMap();
+//        String nombreString = requestParams.get("nb");
+//        if (nombreString != null) {
+//            nombre = Integer.parseInt(nombreString);
+//        } else {
+//            nombre = 0;
+//        }
+//    }
 
 //    public Bean() {
 //    }
